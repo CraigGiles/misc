@@ -16,8 +16,33 @@ nmap <silent> <leader>ev :vsplit $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 nmap <D-p> :CtrlP<CR>
 
+" ========================================
+" CTags / Code Completion / Code Navigation
+" ========================================
+" Ctrl-Space    : Open Code Completion Suggestions
+" Cmd-b         : goto definition
+" Cmd-shift-b   : goto definition in new vsplit
+" Cmd-[         : go back to previous tag
+" ========================================
+imap <C-Space> <C-x><C-o>
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <D-B> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+map <D-b> <C-]>
+map <D-[> <C-t>
+
+" Look for the tags file in current or root until you find it
+set tags=./tags;/
+
+" Auto generate tags files 
+:let g:easytags_dynamic_files=1
 " Fast way to exit
 nmap <leader>q :q<CR>
+
+
+" ========================================
+" PHP Unit settings
+" ========================================
+
 
 " ========================================
 " VIM settings
@@ -50,9 +75,6 @@ set modelines=0          " disable modelines in files
 set gdefault             " /%s/foo/bar by default replaces all foo with bar
 set incsearch            
 set hlsearch
-
-" Save on loosing focus
-au FocusLost * :wa 
 
 " Easy window navigation
 map <C-h> <C-w>h
