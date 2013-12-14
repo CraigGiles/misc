@@ -14,6 +14,8 @@ nmap <leader>w <C-w>v<C-w>l
 " Quickly edit/reload the vimrc file (,ev and ,sv)
 nmap <silent> <leader>ev :vsplit $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" Map Control-P plugin to cmd-p
 nmap <D-p> :CtrlP<CR>
 
 " ========================================
@@ -134,9 +136,6 @@ nmap <M-t> <Esc>:tabnew<CR>
 " ===========================
 " CtrlP Plugin Options
 " ===========================
-" Map the key to CMD-T
-nmap <M-p> CtrlP
-
 " Set directory to the nearest .git 
 let g:ctrlp_working_path_mode = 'ra'
 
