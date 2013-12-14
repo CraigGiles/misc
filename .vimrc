@@ -1,3 +1,6 @@
+" Pathogen plugin manager
+call pathogen#infect()
+
 " Sets how many lines of history VIM has to remember
 set history=700
 
@@ -44,10 +47,6 @@ set shiftwidth=4
 " Be smart when using tabs
 set smarttab
 
-" Map <Space> to move to next search result, Ctrl-<Space> to move previous
-map <space> /
-map <c-space> ?
-
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
@@ -66,3 +65,12 @@ map <leader>ss :setlocal spell!<cr>
 
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+
+" CtrlP Plugin Options
+" Map the key to CMD-T
+nmap <M-t> CtrlP
+
+" Unless a starting directory is specified, set directory to the nearest .git 
+let g:ctrlp_working_path_mode = 'ra'
+
+
