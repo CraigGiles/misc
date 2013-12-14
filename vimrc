@@ -38,7 +38,7 @@ set tags=./tags;/
 " Auto generate tags files 
 :let g:easytags_dynamic_files=1
 " Fast way to exit
-nmap <leader>q :q<CR>
+nmap <D-q> :q<CR>
 
 
 " ========================================
