@@ -24,6 +24,7 @@ Bundle "xolox/vim-misc"
 Bundle "xolox/vim-easytags"
 Bundle "scrooloose/nerdtree"
 Bundle "amiorin/vim-project"
+Bundle "beberlei/vim-php-refactor"
 
 " ========================================
 " VIM Projects
@@ -138,6 +139,7 @@ set tm=500
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Enables syntax highlighting
 syntax enable
