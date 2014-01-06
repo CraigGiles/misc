@@ -225,8 +225,8 @@ map <right> <nop>
 map <leader>ss :setlocal spell!<cr> 
 
 "Resize vsplit
-nmap <C-v> :vertical resize +5<cr>
-nmap <C-b> :vertical resize -5<cr>
+nmap <leader>v :vertical resize +5<cr>
+nmap <leader>b :vertical resize -5<cr>
 
 "Load the current buffer in Chrome
 nmap ,ch :!open -a Google\ Chrome<cr>
