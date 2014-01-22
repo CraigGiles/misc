@@ -2,6 +2,60 @@
 set nocompatible
 set mouse=a
 
+" ========================================
+" key bindings
+" ========================================
+let mapleader = ","
+let g:mapleader = ","
+
+"Easy escaping to normal model
+imap jj <esc>
+
+" Quickly edit/reload the vimrc file (,ev and ,sv)
+nmap <silent> <leader>ev :vsplit $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" CMD 1 opens up the file list
+map <D-1> :NERDTreeToggle<CR>
+
+
+" ========================================
+" VIM settings
+" ========================================
+set history=700         " Sets how many lines of history VIM has to remember
+set nocompatible        " default to vim
+set tabstop=4           " number of visual spaces per TAB
+set softtabstop=4       " number of spaces in tab when editing
+set expandtab           " tabs are spaces
+set number              " show line numbers
+set showcmd             " show command in bottom bar
+set cursorline          " highlight current line
+set showmatch           " highlight matching [{()}]
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
+set autoread            " Autoread when a file is changed from the outside
+set ruler               " Always show current position
+set encoding=utf8       " Show matching brackets when text indicator is over them
+set nowrap              " don't wrap lines
+set autoindent          " always set autoindenting on
+set copyindent          " copy the previous indentation on autoindenting
+set shiftwidth=4        " number of spaces to use for autoindenting
+set ignorecase          " ignore case when searching
+set smartcase           " ignore case if search pattern is all lowercase,
+set undolevels=1000     " use many muchos levels of undo
+set title               " change the terminal's title
+set visualbell          " don't beep
+set noerrorbells        " don't beep
+set gdefault            " /%s/foo/bar by default replaces all foo with bar
+set wildignore=*.swp,*.bak,*.pyc,*.class
+
+set nobackup            " don't use backup files
+set nowb                " don't use backup files
+set noswapfile          " don't use swap files
+
+" Auto-remove trailing spaces
+autocmd BufWritePre *.php :%s/\s\+$//e
+
 
 " ========================================
 " Vundle Bundles
@@ -11,9 +65,6 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
-
-" PHP syntax
-Bundle 'phpvim'
 
 " Shows structure (bound to CMD-7)
 Bundle 'taglist.vim'
@@ -33,22 +84,14 @@ Bundle "scrooloose/nerdtree"
 " Project based vim
 Bundle "amiorin/vim-project"
 
-" Refactorings for VIM, key's below 
-" \em :call ExtractMethod()<CR>
-" \ev :call ExtractVariable()<CR>
-" \ep :call ExtractClassProperty()<CR>
-" \ei :call ExtractInterface()<CR>
-" \rlv :call RenameLocalVariable()<CR>
-" \rcv :call RenameClassVariable()<CR>
-" \iaf :call ImplementAbstractFunctions()<CR>
-Bundle "beberlei/vim-php-refactor"
-Bundle "terryma/vim-multiple-cursors"
-
 " Solarized color scheme
 Bundle "altercation/vim-colors-solarized"
 
 " Railscast Theme
 Bundle "jpo/vim-railscasts-theme"
+
+" Powerline
+Bundle "Lokaltog/powerline"
 
 " ========================================
 " VIM Projects
@@ -65,76 +108,14 @@ Project 'website', 'Red Hot Mayo'
 call project#rc()
 
 " ========================================
-" Laravel Bindings 
+" Window Navigation
 " ========================================
-abbrev gm !php artisan generate:model
-abbrev gc !php artisan generate:controller
-abbrev gmig !php artisan generate:migration
-abbrev mreset !php artisian migration:reset<cr>
-abbrev mrollback !php artisian migration:rollback<cr>
-abbrev mmigrate !php artisian migrat<cr>
-
-" Laravel framework commons
-nmap <leader>lr :e app/routes.php<cr>
-nmap <leader>lca :e app/config/app.php<cr>81Gf(%O
-nmap <leader>lcd :e app/config/database.php<cr>
-nmap <leader>lc :e composer.json<cr>
-
-
-" ========================================
-" key bindings
-" ========================================
-let mapleader = ","
-let g:mapleader = ","
-
-" Fast saves
-nmap <leader>w :w!<CR>
-
-" CMD 7 opens up the structure list
-map <D-7> :TlistToggle<CR>
-
-" CMD 1 opens up the file list
-map <D-1> :NERDTreeToggle<CR>
-
-" Down is really the next line
-nnoremap j gj
-nnoremap k gk
- 
-"Easy escaping to normal model
-imap jj <esc>
-
-" Quickly edit/reload the vimrc file (,ev and ,sv)
-nmap <silent> <leader>ev :vsplit $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
-"Auto change directory to match current file ,cd
-nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
-
 " Easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Disables the arrow keys (MUAHAHAHA)
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-
-" Pressing ,ss will toggle and untoggle spell checking
-map <leader>ss :setlocal spell!<cr> 
-
-"Resize vsplit
-nmap <C-z> :vertical resize +5<cr>
-nmap <C-[> :vertical resize -5<cr>
-
-"Load the current buffer in Chrome
-nmap ,ch :!open -a Google\ Chrome<cr>
-
-" Create split below
-nmap :sp :rightbelow sp<cr>
- 
 " Quickly go forward or backward to buffer
 nmap :bp :BufSurfBack<cr>
 nmap :bn :BufSurfForward<cr>
@@ -143,23 +124,21 @@ nmap :bn :BufSurfForward<cr>
 nmap vs :vsplit<cr>
 nmap sp :split<cr>
 
-highlight Search cterm=underline
+" ========================================
+" Movement bindings
+" ========================================
+" Disables the arrow keys (MUAHAHAHA)
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
 
-" Run PHPUnit tests
-map <Leader>t :!phpunit %<cr>
+nnoremap j gj           " move vertically by visual line
+nnoremap k gk           " move vertically by visual line
 
-" Remove search results
-command! H let @/=""
-
-" If you prefer the Omni-Completion tip window to close when a selection is
-" made, these lines close it on movement in insert mode or when leaving
-" insert mode
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-" Auto-remove trailing spaces
-autocmd BufWritePre *.php :%s/\s\+$//e
-
+" Down is really the next line
+nnoremap j gj
+nnoremap k gk
 
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
@@ -174,110 +153,49 @@ if has("mac") || has("macunix")
   vmap <D-k> <M-k>
 endif
 
-" Familiar commands for file/symbol browsing
-map <D-p> :CtrlP<cr>
-map <C-r> :CtrlPBufTag<cr>
-set completeopt-=preview
+" ========================================
+" CtrlP Plugin Options
+" ========================================
+" Set directory to the nearest .git 
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_custom_ignore = '\vbuild/|dist/|venv/|\.(o|swp|pyc|egg)$'
 
 " I don't want to pull up these folders/files when calling CtrlP
 set wildignore+=*/vendor/**
 set wildignore+=*/public/forum/**
 
-" ========================================
-" CTags / Code Completion / Code Navigation
-" ========================================
-" Ctrl-Space    : Open Code Completion Suggestions
-" Cmd-b         : goto definition
-" Cmd-shift-b   : goto definition in new vsplit
-" Cmd-[         : go back to previous tag
-" ========================================
-imap <C-Space> <C-x><C-o>
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <D-B> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-map <D-b> <C-]>
-map <D-[> <C-t>
-
-
-
-" Look for the tags file in current or root until you find it
-set tags=./tags;/
-let g:easytags_dynamic_files=1
-" ========================================
-" PHP Unit settings
-" ========================================
-
+" Familiar commands for file/symbol browsing
+map <D-p> :CtrlP<cr>
 
 " ========================================
-" VIM settings
+" Basic Vim Settings
 " ========================================
-set history=700   " Sets how many lines of history VIM has to remember
-
-set autoread      " Autoread when a file is changed from the outside
-set ruler         " Always show current position
-set nu            " Show line numbers
-set showmatch     " Show matching brackets when text indicator is over them
-set encoding=utf8 " Show matching brackets when text indicator is over them
-set smarttab      " Be smart when using tabs
-set smartindent   " Smart indenting
-set splitright    " Remove the Windows ^M - when the encodings gets messed up
-set nowrap        " don't wrap lines
-set expandtab     " use spaces instead of tabs
-set tabstop=4     " a tab is four spaces
-set autoindent    " always set autoindenting on
-set copyindent    " copy the previous indentation on autoindenting
-set shiftwidth=4  " number of spaces to use for autoindenting
-set ignorecase    " ignore case when searching
-set smartcase     " ignore case if search pattern is all lowercase,
-set hlsearch      " highlight search terms
-set incsearch     " show search matches as you typej
-set undolevels=1000      " use many muchos levels of undo
-set wildignore=*.swp,*.bak,*.pyc,*.class
-set title                " change the terminal's title
-set visualbell           " don't beep
-set noerrorbells         " don't beep
-set modelines=0          " disable modelines in files
-set gdefault             " /%s/foo/bar by default replaces all foo with bar
-set incsearch            
-set hlsearch
-
 " Show matching brackets when text indicator is over them
 set t_vb=
 set tm=500
 
-" Turn off file backups since most stuff is in git
-set nobackup
-set nowb
-set noswapfile
+" Look for the tags file in current or root until you find it
+set tags=./tags;/
+let g:easytags_dynamic_files=1
 
-" Enable filetype plugins
-filetype plugin on
-filetype indent on
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" Remove the Windows ^M - when the encodings gets messed up
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
-
-" Set CMD T to open up a new tab
-nmap <D-t> <Esc>:tabnew<CR>
-
-" Powerline (Fancy thingy at bottom stuff)
+" ========================================
+" Powerline Settings
+" ========================================
 let g:Powerline_symbols = 'fancy'
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
-set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
-
-
-" ===========================
-" CtrlP Plugin Options
-" ===========================
-" Set directory to the nearest .git 
-let g:ctrlp_working_path_mode = 'ra'
-
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+let g:Powerline_mode_V="V·LINE"
+let g:Powerline_mode_cv="V·BLOCK"
+let g:Powerline_mode_S="S·LINE"
+let g:Powerline_mode_cs="S·BLOCK"
 
 " ========================================
 " Color Scheme Settings 
 " ========================================
-
 " Enables syntax highlighting
 syntax enable
 " set background=dark
@@ -373,3 +291,4 @@ hi PmenuSel guifg=#000000 guibg=#A5C160 gui=NONE
 hi PMenuSbar guibg=#5A647E gui=NONE
 " thumb of the scrollbar in the popup
 hi PMenuThumb guibg=#AAAAAA gui=NONE
+
