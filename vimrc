@@ -101,11 +101,14 @@ let g:project_enable_welcome = 1
 let g:project_use_nerdtree = 1
 
 " custom starting path
-call project#rc("/Users/gilesc/Development/redhotmayo/")
-Project 'website', 'Red Hot Mayo'
+call project#rc("/Users/cgiles/Development/nfs/git-repos/")
+Project 'dsl', 'DSL'
+Project 'dsl-idl', 'dsl-idl'
+Project 'pm', 'pm'
 
 " default starting path (the home directory)
 call project#rc()
+
 
 " ========================================
 " Window Navigation
@@ -184,10 +187,9 @@ let g:easytags_dynamic_files=1
 " ========================================
 " Powerline Settings
 " ========================================
-let g:Powerline_symbols = 'fancy'
+set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
 set encoding=utf-8
-set t_Co=256
-set fillchars+=stl:\ ,stlnc:\
+let g:Powerline_symbols = 'fancy'
 let g:Powerline_mode_V="V·LINE"
 let g:Powerline_mode_cv="V·BLOCK"
 let g:Powerline_mode_S="S·LINE"
