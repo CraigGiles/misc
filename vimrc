@@ -16,8 +16,9 @@ nmap <silent> <leader>ev :vsplit $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " CMD 1 opens up the file list
-map <D-1> :NERDTreeToggle<CR>
+map <leader>1 :NERDTreeToggle<CR>
 
+nmap <leader>7 :TagbarToggle<CR>
 
 " ========================================
 " VIM settings
@@ -66,8 +67,7 @@ call vundle#rc()
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
-" Shows structure (bound to CMD-7)
-Bundle 'taglist.vim'
+Bundle 'majutsushi/tagbar'
 
 " Fuzzy Finder
 Bundle 'kien/ctrlp.vim'              
@@ -84,14 +84,14 @@ Bundle "scrooloose/nerdtree"
 " Project based vim
 Bundle "amiorin/vim-project"
 
+" Powerline
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
 " Solarized color scheme
 Bundle "altercation/vim-colors-solarized"
 
 " Railscast Theme
 Bundle "jpo/vim-railscasts-theme"
-
-" Powerline
-Bundle "Lokaltog/powerline"
 
 " ========================================
 " VIM Projects
@@ -147,10 +147,10 @@ vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 if has("mac") || has("macunix")
-  nmap <D-j> <M-j>
-  nmap <D-k> <M-k>
-  vmap <D-j> <M-j>
-  vmap <D-k> <M-k>
+  nmap <C-j> <M-j>
+  nmap <C-k> <M-k>
+  vmap <C-j> <M-j>
+  vmap <C-k> <M-k>
 endif
 
 " ========================================
@@ -167,7 +167,7 @@ set wildignore+=*/vendor/**
 set wildignore+=*/public/forum/**
 
 " Familiar commands for file/symbol browsing
-map <D-p> :CtrlP<cr>
+map <c-p> :CtrlP<cr>
 
 " ========================================
 " Basic Vim Settings
