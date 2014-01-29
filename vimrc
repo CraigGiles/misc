@@ -11,6 +11,9 @@ let g:mapleader = ","
 "Easy escaping to normal model
 imap jj <esc>
 
+nmap <F1> :vertical resize +5<CR>
+nmap <F2> :vertical resize -5<CR>
+
 " Quickly edit/reload the vimrc file (,ev and ,sv)
 nmap <silent> <leader>ev :vsplit $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
