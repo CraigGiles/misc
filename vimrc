@@ -48,7 +48,8 @@ set title               " change the terminal's title
 set visualbell          " don't beep
 set noerrorbells        " don't beep
 set gdefault            " /%s/foo/bar by default replaces all foo with bar
-set wildignore=*.swp,*.bak,*.pyc,*.class
+set wildignore+=*.swp   " Ignore vim's swp files
+set wildignore+=*.bak   " Ignore vim's backup files
 
 set nobackup            " don't use backup files
 set nowb                " don't use backup files
@@ -57,6 +58,8 @@ set noswapfile          " don't use swap files
 " Auto-remove trailing spaces
 autocmd BufWritePre *.php :%s/\s\+$//e
 
+" Omni complete
+set omnifunc=syntaxcomplete#Complete
 
 " ========================================
 " Vundle Bundles
@@ -84,7 +87,7 @@ Bundle "scrooloose/nerdtree"
 " Project based vim
 Bundle "amiorin/vim-project"
 
-" Powerline
+" Powerline : https://powerline.readthedocs.org/en/latest/installation/osx.html
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " Solarized color scheme
@@ -118,10 +121,6 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-
-" Quickly go forward or backward to buffer
-nmap :bp :BufSurfBack<cr>
-nmap :bn :BufSurfForward<cr>
 
 " Open splits
 nmap vs :vsplit<cr>
@@ -168,6 +167,7 @@ let g:ctrlp_custom_ignore = '\vbuild/|dist/|venv/|\.(o|swp|pyc|egg)$'
 " I don't want to pull up these folders/files when calling CtrlP
 set wildignore+=*/vendor/**
 set wildignore+=*/public/forum/**
+set wildignore+=*.class,.git,.hg,.svn
 
 " Familiar commands for file/symbol browsing
 map <c-p> :CtrlP<cr>
@@ -180,7 +180,7 @@ set t_vb=
 set tm=500
 
 " Look for the tags file in current or root until you find it
-set tags=./tags;/
+set tags=./tags
 let g:easytags_dynamic_files=1
 
 
