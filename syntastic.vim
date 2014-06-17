@@ -1,0 +1,2 @@
+" SyntasticCheck php
+
