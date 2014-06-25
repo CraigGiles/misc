@@ -18,6 +18,7 @@ set wildignore+=*.bak       " Ignore vim's backup files
 set nobackup                " don't use backup files
 set nowb                    " don't use backup files
 set noswapfile              " don't use swap files
+set noundofile              " don't use undo files
 set so=5                    " keep 15 lines above and below cursor when scrolling
 
 scriptencoding utf-8
@@ -177,9 +178,8 @@ NeoBundle 'scrooloose/nerdtree'
 " Ack
 NeoBundle 'mileszs/ack.vim'
 
-" FuzzyFinder
-NeoBundle 'vim-scripts/L9'
-NeoBundle 'vim-scripts/FuzzyFinder'
+" fuzzy finder
+NeoBundle "wincent/command-t"
 
 " NerdTree Commentor
 NeoBundle 'scrooloose/nerdcommenter'
@@ -192,9 +192,6 @@ NeoBundle 'amiorin/vim-project'
 
 " PHP Complete
 NeoBundle 'shawncplus/phpcomplete.vim'
-
-" CTRL-P fuzzy finder
-NeoBundle "kien/ctrlp.vim"
 
 " Syntax Checking
 NeoBundle 'scrooloose/syntastic'
@@ -225,13 +222,11 @@ let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 
-" CTRL-P
-let g:ctrlp_working_path_mode = 'ra'
-nnoremap <silent> <C-p> :CtrlP<CR>
-nnoremap <silent> <C-r> :CtrlPMRU<CR>
-
 " Tagbar
 nnoremap <silent> <leader>7 :TagbarToggle<CR>
+
+" Command-T fuzzy finder
+nmap <C-p> :CommandT docroot/application<CR>
 
 " Fugitive
 nnoremap <silent> <leader>gs :Gstatus<CR>
