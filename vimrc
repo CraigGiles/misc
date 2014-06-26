@@ -19,41 +19,17 @@ set nobackup                " don't use backup files
 set nowb                    " don't use backup files
 set noswapfile              " don't use swap files
 set noundofile              " don't use undo files
+set noautochdir             " don't automatically change directories
 set so=5                    " keep 15 lines above and below cursor when scrolling
 
 scriptencoding utf-8
 
-if has('clipboard')
-    if has('unnamedplus')  " When possible use + register for copy-paste
-        set clipboard=unnamedplus
-    else         " On mac and Windows, use * register for copy-paste
-        set clipboard=unnamed
-    endif
-endif
-
-" Most prefer to automatically switch to the current file directory when
-" a new buffer is opened; to prevent this behavior, add the following to
-" your .vimrc.before.local file:
-"   let g:spf13_no_autochdir = 1
-if !exists('g:spf13_no_autochdir')
-autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
-" Always switch to the current file directory
-endif
-
-"set autowrite                       " Automatically write a file when leaving a modified buffer
+set autowrite                       " Automatically write a file when leaving a modified buffer
 set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 set virtualedit=onemore             " Allow for cursor beyond last character
 set history=1000                    " Store a ton of history (default is 20)
 set spell                       " Spell checking on
-set hidden                      " Allow buffer switching without saving
-
-set backup                      " Backups are nice ...
-if has('persistent_undo')
-    set undofile                " So is persistent undo ...
-    set undolevels=1000         " Maximum number of changes that can be undone
-    set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
-endif
 
 " ==================================================
 " UI Settings
@@ -89,7 +65,6 @@ set backspace=indent,eol,start  " Backspace for dummies
 set linespace=0                 " No extra spaces between rows
 set nu                          " Line numbers on
 set showmatch                   " Show matching brackets/parenthesis
-set incsearch                   " Find as you type search
 set hlsearch                    " Highlight search terms
 set winminheight=0              " Windows can be 0 line high
 set ignorecase                  " Case insensitive search
@@ -97,12 +72,9 @@ set smartcase                   " Case sensitive when uc present
 set wildmenu                    " Show list instead of just completing
 set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
 set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
-set scrolljump=5                " Lines to scroll when cursor leaves screen
-set scrolloff=3                 " Minimum lines to keep above and below cursor
-set foldenable                  " Auto fold code
+set scrolloff=5                 " Minimum lines to keep above and below cursor
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
-
 
 " ==================================================
 " Formatting
@@ -116,7 +88,6 @@ set softtabstop=4               " Let backspace delete indent
 set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
 set splitright                  " Puts new vsplit windows to the right of the current
 set splitbelow                  " Puts new split windows to the bottom of the current
-
 
 " ==================================================
 " Key Bindings / Shortcuts
@@ -166,7 +137,7 @@ nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<C
 set runtimepath+=~/.vim/bundle/neobundle.vim
 call neobundle#begin(expand('~/.vim/bundle/'))
 
-" let neobundle manage 
+" let neobundle manage
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Tim Pope's git integration
@@ -174,9 +145,6 @@ NeoBundle 'tpope/vim-fugitive'
 
 " NerdTree file explorer
 NeoBundle 'scrooloose/nerdtree'
-
-" Ack
-NeoBundle 'mileszs/ack.vim'
 
 " fuzzy finder
 NeoBundle "wincent/command-t"
@@ -226,7 +194,7 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 nnoremap <silent> <leader>7 :TagbarToggle<CR>
 
 " Command-T fuzzy finder
-nmap <C-p> :CommandT docroot/application<CR>
+nmap <C-p> :CommandT<CR>
 
 " Fugitive
 nnoremap <silent> <leader>gs :Gstatus<CR>
