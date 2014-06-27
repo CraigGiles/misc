@@ -7,6 +7,7 @@ set mouse=a
 
 set linespace=15
 
+set laststatus=2                " always show statusbar
 set showmode                    " always show what mode we're currently editing in
 set tabstop=4                   " a tab is four spaces
 set smarttab
@@ -60,7 +61,7 @@ nnoremap j gj
 nnoremap k gk
 
 "Easy escaping to normal model
-imap jj <esc>
+imap jj <ESC>
 
 "easier window navigation
 nmap <C-h> <C-w>h
@@ -69,12 +70,24 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
 " Open splits
-nmap vs :vsplit<cr>
-nmap sp :split<cr>
+nmap vs :vsplit<CR>
+nmap sp :split<CR>
 
-" ==================================================
-" Formatting
-" ==================================================
+" resize vertical splits
+nmap <F1> :vertical resize +5<CR>
+nmap <F2> :vertical resize -5<CR>
+
+" CMD-1 opens up the file list
+map <leader>1 :NERDTreeToggle<CR>
+
+" Find the current file in NERDTree file structure
+nmap <leader>2 :NERDTreeFind<CR>
+
+" CMD-7 opens up the tagbar
+nmap <leader>7 :TagbarToggle<CR>
+
+" Command T
+nmap <C-p> :CommandT docroot/application<CR>
 
 " ==================================================
 " Functions
