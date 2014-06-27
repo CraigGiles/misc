@@ -1,143 +1,127 @@
 " ==================================================
 " VIM Settings
 " ==================================================
-set nocompatible                " Must be first line
+set nocompatible   " Disable vi-compatibility
+set t_Co=256
+set mouse=a
 
-set background=dark         " Assume a dark background
-filetype plugin indent on   " Automatically detect file types.
-syntax on                   " Syntax highlighting
+set linespace=15
 
-set mouse=a                 " Automatically enable mouse usage
-set mousehide               " Hide the mouse cursor while typing
-set autoread                " Autoread when a file is changed from the outside
-set visualbell              " don't beep
-set noerrorbells            " don't beep
-set gdefault                " /%s/foo/bar by default replaces all foo with bar
-set wildignore+=*.swp       " Ignore vim's swp files
-set wildignore+=*.bak       " Ignore vim's backup files
-set nobackup                " don't use backup files
-set nowb                    " don't use backup files
-set noswapfile              " don't use swap files
-set noundofile              " don't use undo files
-set noautochdir             " don't automatically change directories
-set so=5                    " keep 15 lines above and below cursor when scrolling
+set showmode                    " always show what mode we're currently editing in
+set tabstop=4                   " a tab is four spaces
+set smarttab
+set softtabstop=4               " when hitting <BS>, pretend like a tab is removed, even if spaces
+set expandtab                   " expand tabs by default (overloadable per file type later)
+set shiftwidth=4                " number of spaces to use for autoindenting
+set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
+set backspace=indent,eol,start  " allow backspacing over everything in insert mode
+set number                      " always show line numbers
+set visualbell                  " don't beep
+set noerrorbells                " don't beep
+set autowrite                   " save on buffer switch
+set showcmd                     " show partial command in status line
+set noswapfile                  " disable swap files
+set nobackup                    " disable backup files
+set clipboard=unnamed           " Copy to clipboard when using (y,d,x,etc.)
+set history=700                 " Sets how many lines of history VIM has to remember
+set cursorline                  " highlight current line
+set hlsearch                    " highlight matches
+set autoread                    " Autoread when a file is changed from the outside
+set ruler                       " Always show current position
+set ignorecase                  " ignore case when searching
+set smartcase                   " ignore case if search pattern is all lowercase,
+set undolevels=1000             " use many muchos levels of undo
+set copyindent                  " copy the previous indentation on autoindenting
+set gdefault                    " /%s/foo/bar by default replaces all foo with bar
+set so=5                        " keep 15 lines above and below cursor when scrolling
+set nowrap                      " Do not wrap long lines
+set autoindent                  " Indent at the same level of the previous line
+set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
+set splitright                  " Puts new vsplit windows to the right of the current
+set splitbelow                  " Puts new split windows to the bottom of the current
+set tags=tags
 
-scriptencoding utf-8
+" I don't want to pull up these folders/files when calling COMMAND-T
+set wildignore+=*/vendor/**
+set wildignore+=*/cli/**
+set wildignore+=*/logs/**
+set wildignore+=*/sql/**
+set wildignore+=*/tools/**
+set wildignore+=*.swp   
+set wildignore+=*.bak  
 
-set autowrite                       " Automatically write a file when leaving a modified buffer
-set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
-set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
-set virtualedit=onemore             " Allow for cursor beyond last character
-set history=1000                    " Store a ton of history (default is 20)
-set spell                       " Spell checking on
-
+" Auto-remove trailing spaces
+autocmd BufWritePre *.php :%s/\s\+$//e
 " ==================================================
-" UI Settings
+" Key Bindings
 " ==================================================
-set tabpagemax=15               " Only show 15 tabs
-set showmode                    " Display the current mode
+" Down is really the next line
+nnoremap j gj
+nnoremap k gk
 
-set cursorline                  " Highlight current line
+"Easy escaping to normal model
+imap jj <esc>
 
-highlight clear SignColumn      " SignColumn should match background
-highlight clear LineNr          " Current line number row will have same background color in relative mode
+"easier window navigation
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
 
-if has('cmdline_info')
-    set ruler                   " Show the ruler
-    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
-    set showcmd                 " Show partial commands in status line and
-                                " Selected characters/lines in visual mode
-endif
-
-if has('statusline')
-    set laststatus=2
-
-    " Broken down into easily includeable segments
-    set statusline=%<%f\                     " Filename
-    set statusline+=%w%h%m%r                 " Options
-    set statusline+=%{fugitive#statusline()} " Git Hotness
-    set statusline+=\ [%{&ff}/%Y]            " Filetype
-    set statusline+=\ [%{getcwd()}]          " Current dir
-    set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-endif
-
-set backspace=indent,eol,start  " Backspace for dummies
-set linespace=0                 " No extra spaces between rows
-set nu                          " Line numbers on
-set showmatch                   " Show matching brackets/parenthesis
-set hlsearch                    " Highlight search terms
-set winminheight=0              " Windows can be 0 line high
-set ignorecase                  " Case insensitive search
-set smartcase                   " Case sensitive when uc present
-set wildmenu                    " Show list instead of just completing
-set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
-set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
-set scrolloff=5                 " Minimum lines to keep above and below cursor
-set list
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+" Open splits
+nmap vs :vsplit<cr>
+nmap sp :split<cr>
 
 " ==================================================
 " Formatting
 " ==================================================
-set nowrap                      " Do not wrap long lines
-set autoindent                  " Indent at the same level of the previous line
-set shiftwidth=4                " Use indents of 4 spaces
-set expandtab                   " Tabs are spaces, not tabs
-set tabstop=4                   " An indentation every four columns
-set softtabstop=4               " Let backspace delete indent
-set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
-set splitright                  " Puts new vsplit windows to the right of the current
-set splitbelow                  " Puts new split windows to the bottom of the current
 
 " ==================================================
-" Key Bindings / Shortcuts
+" Functions
 " ==================================================
-"Easy escaping to normal model
-imap jj <esc>
 
-" Easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+" Prepare a new PHP class
+function! Class()
+    let name = input('Class name? ')
+    let namespace = input('Any Namespace? ')
 
-" resize vertical splits
-nmap <F2> :vertical resize +5<CR>
-nmap <F3> :vertical resize -5<CR>
+    if strlen(namespace)
+        exec 'normal i<?php namespace ' . namespace . ';
+    else
+        exec 'normal i<?php
+    endif
 
-" CTRL-b will jump into a function
-nmap <C-b> <C-]>
+    " Open class
+    exec 'normal iclass ' . name . ' {^M}^[O^['
+    
+    exec 'normal i^M    public function __construct()^M{^M ^M}^['
+endfunction
+nmap nc :call Class()<cr>
 
-" Wrapped lines goes down/up to next row, rather than next line in file.
-noremap j gj
-noremap k gk
 
-" Yank from the cursor to the end of the line, to be consistent with C and D.
-nnoremap Y y$
+" Add a new dependency to a PHP class
+function! AddDependency()
+    let dependency = input('Var Name: ')
+    let namespace = input('Class Path: ')
 
-nmap <leader>] :nohlsearch<CR>
+    let segments = split(namespace, '\')
+    let typehint = segments[-1]
 
-" Find merge conflict markers
-map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
+    exec 'normal gg/construct^M:H^Mf)i, ' . typehint . ' $' . dependency . '^[/}^>O$this->^[a' . dependency . ' = $' . dependency . ';^[?{^MkOprotected $' . dependency . ';^M^[?{^MOuse ' . namespace . ';^M^['
 
-" Open splits
-nmap vs :vsplit<cr>
-nmap hs :split<cr>
+    " Remove opening comma if there is only one dependency
+    exec 'normal :%s/(, /(/g
+'
+endfunction
+nmap nd :call AddDependency()<cr>
 
-" Adjust viewports to the same size
-map <Leader>= <C-w>=
-
-" Map <Leader>ff to display all lines with keyword under cursor
-" and ask which one to jump to
-nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
-
-" ==================================================
+"======================================== 
 " Plugins
-" ==================================================
+"======================================== 
 set runtimepath+=~/.vim/bundle/neobundle.vim
 call neobundle#begin(expand('~/.vim/bundle/'))
 
-" let neobundle manage
+" let neobundle manage 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Tim Pope's git integration
@@ -145,9 +129,6 @@ NeoBundle 'tpope/vim-fugitive'
 
 " NerdTree file explorer
 NeoBundle 'scrooloose/nerdtree'
-
-" fuzzy finder
-NeoBundle "wincent/command-t"
 
 " NerdTree Commentor
 NeoBundle 'scrooloose/nerdcommenter'
@@ -161,6 +142,9 @@ NeoBundle 'amiorin/vim-project'
 " PHP Complete
 NeoBundle 'shawncplus/phpcomplete.vim'
 
+" fuzzy finder
+NeoBundle "wincent/command-t"
+
 " Syntax Checking
 NeoBundle 'scrooloose/syntastic'
 
@@ -173,48 +157,18 @@ NeoBundle "jpo/vim-railscasts-theme"
 call neobundle#end()
 filetype plugin indent on
 
-" ==================================================
-" Plugins Settings
-" ==================================================
-"NERDTree
-map <leader>1 :NERDTreeToggle<CR>
-map <leader>2 :NERDTreeFind<CR>
-map <C-e> <plug>NERDTreeTabsToggle<CR>
+"======================================== 
+" Railscast Theme
+"======================================== 
+" Enables syntax highlighting
+syntax enable
+set background=dark
 
-let NERDTreeShowBookmarks=1
-let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.idea', '\.DS_Store']
-let NERDTreeChDirMode=0
-let NERDTreeQuitOnOpen=1
-let NERDTreeMouseMode=2
-let NERDTreeShowHidden=1
-let NERDTreeKeepTreeInNewTab=1
-let g:nerdtree_tabs_open_on_gui_startup=0
+hi clear
+if exists("syntax_on")
+  syntax reset
+endif
 
-" Tagbar
-nnoremap <silent> <leader>7 :TagbarToggle<CR>
-
-" Command-T fuzzy finder
-nmap <C-p> :CommandT<CR>
-
-" Fugitive
-nnoremap <silent> <leader>gs :Gstatus<CR>
-nnoremap <silent> <leader>gd :Gdiff<CR>
-nnoremap <silent> <leader>gc :Gcommit<CR>
-nnoremap <silent> <leader>gb :Gblame<CR>
-nnoremap <silent> <leader>gl :Glog<CR>
-nnoremap <silent> <leader>gp :Git push<CR>
-nnoremap <silent> <leader>gr :Gread<CR>
-nnoremap <silent> <leader>gw :Gwrite<CR>
-nnoremap <silent> <leader>ge :Gedit<CR>
-" Mnemonic _i_nteractive
-nnoremap <silent> <leader>gi :Git add -p %<CR>
-nnoremap <silent> <leader>gg :SignifyToggle<CR>
-
-
-
-" ==================================================
-" Theme
-" ==================================================
 let g:colors_name = "railscasts"
 
 " Colors
@@ -300,4 +254,3 @@ hi PmenuSel guifg=#000000 guibg=#A5C160 gui=NONE
 hi PMenuSbar guibg=#5A647E gui=NONE
 " thumb of the scrollbar in the popup
 hi PMenuThumb guibg=#AAAAAA gui=NONE
-
