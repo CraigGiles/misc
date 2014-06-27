@@ -87,7 +87,7 @@ nmap <leader>2 :NERDTreeFind<CR>
 nmap <leader>7 :TagbarToggle<CR>
 
 " Command T
-nmap <C-p> :CommandT docroot/application<CR>
+nmap <C-p> :CommandT<CR>
 
 " ==================================================
 " Functions
