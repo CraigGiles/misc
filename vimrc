@@ -5,7 +5,9 @@ set nocompatible   " Disable vi-compatibility
 set t_Co=256
 set mouse=a
 
-set linespace=15
+set linespace=5
+
+set guifont=Monaco:h14          " Sets the font                   
 
 set laststatus=2                " always show statusbar
 set showmode                    " always show what mode we're currently editing in
@@ -40,6 +42,7 @@ set autoindent                  " Indent at the same level of the previous line
 set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
 set splitright                  " Puts new vsplit windows to the right of the current
 set splitbelow                  " Puts new split windows to the bottom of the current
+set spell                       " Spellcheck!
 set tags=tags
 
 " I don't want to pull up these folders/files when calling COMMAND-T
