@@ -145,8 +145,9 @@ NeoBundle "kien/ctrlp.vim"
 " Syntax Checking
 NeoBundle 'scrooloose/syntastic'
 
-" Railscast Theme
+" Themes
 NeoBundle "jpo/vim-railscasts-theme"
+NeoBundle "nanotech/jellybeans.vim"
 
 call neobundle#end()
 filetype plugin indent on
@@ -154,5 +155,5 @@ filetype plugin indent on
 " Enables syntax highlighting
 syntax enable
 set background=dark
-colorscheme railscasts
-
+" colorscheme railscasts
+colorscheme jellybeans
