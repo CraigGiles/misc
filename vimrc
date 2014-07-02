@@ -90,7 +90,7 @@ nmap <leader>2 :NERDTreeFind<CR>
 nmap <leader>7 :TagbarToggle<CR>
 
 " Command T
-nmap <C-p> :CommandT<CR>
+nmap <C-p> :Find . -iname  
 
 " ==================================================
 " Functions
@@ -139,8 +139,8 @@ NeoBundle 'amiorin/vim-project'
 NeoBundle 'shawncplus/phpcomplete.vim'
 
 " fuzzy finder
-" NeoBundle "wincent/command-t"
-NeoBundle "kien/ctrlp.vim"
+NeoBundle "wincent/command-t"
+" NeoBundle "kien/ctrlp.vim"
 
 " Syntax Checking
 NeoBundle 'scrooloose/syntastic'
