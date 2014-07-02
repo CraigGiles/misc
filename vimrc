@@ -110,7 +110,7 @@ NeoBundle "tpope/vim-sensible"
 
 " Tim Pope's git integration
 NeoBundle 'tpope/vim-fugitive'
-
+NeoBundle 'tpope/vim-eunuch'
 " lets you surround text with things
 NeoBundle "tpope/vim-surround"
 
