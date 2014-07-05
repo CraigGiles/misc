@@ -5,16 +5,40 @@ set nocompatible                " Disable vi-compatibility
 set t_Co=256
 set mouse=a
 set linespace=5
+set wildmenu                    " Tab complete for menu items
 set guifont=Monaco:h14          " Sets the font                   
 set so=5                        " keep 15 lines above and below cursor when scrolling
 set splitright                  " Puts new vsplit windows to the right of the current
 set splitbelow                  " Puts new split windows to the bottom of the current
-set number			" Show line numbers
-set nobackup			" Don't use backup files
-set noswapfile			" Don't use swap files
+set number			            " Show line numbers
+set nobackup                    " don't use backup files
+set nowb                        " don't use backup files
+set noswapfile                  " don't use swap files
+set clipboard=unnamed           " Copy to clipboard when using (y,d,x,etc.)
+set history=700                 " Sets how many lines of history VIM has to remember
+set showcmd                     " show command in bottom bar
+set cursorline                  " highlight current line
+set showmatch                   " highlight matching [{()}]
+set incsearch                   " search as characters are entered
+set hlsearch                    " highlight matches
+set autoread                    " Autoread when a file is changed from the outside
+set ruler                       " Always show current position
+set encoding=utf8               " Show matching brackets when text indicator is over them
+set autoindent                  " always set autoindenting on
+set copyindent                  " copy the previous indentation on autoindenting
+set ignorecase                  " ignore case when searching
+set smartcase                   " ignore case if search pattern is all lowercase,
+set undolevels=1000             " use many muchos levels of undo
+set visualbell                  " don't beep
+set noerrorbells                " don't beep
+set gdefault                    " /%s/foo/bar by default replaces all foo with bar
+
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 
 set tags=tags
-
 
 " I don't want to pull up these folders/files when calling COMMAND-T
 set wildignore+=*/vendor/**
@@ -43,7 +67,7 @@ nmap <C-l> <C-w>l
 
 " Open splits
 nmap vs :vsplit<CR>
-nmap hs :split<CR>
+nmap sp :split<CR>
 
 " resize vertical splits
 nmap <F1> :vertical resize +5<CR>
@@ -77,19 +101,10 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " let neobundle manage 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" base line of configs
-NeoBundle "tpope/vim-sensible"
-
-" Tim Pope's git integration
+" Tim Pope's plugins
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-eunuch'
-" lets you surround text with things
-NeoBundle "tpope/vim-surround"
-
-" Comment code
 NeoBundle "tpope/vim-commentary"
-
-" Complimentary pairs
 NeoBundle "tpope/vim-unimpaired"
 
 " Delete all buffers except the current working buffer
@@ -98,20 +113,25 @@ NeoBundle "vim-scripts/BufOnly.vim"
 " NerdTree file explorer
 NeoBundle 'scrooloose/nerdtree'
 
-" NerdTree Commentor
-NeoBundle 'scrooloose/nerdcommenter'
-
 " Tagbar for sidebar function organization
 NeoBundle 'majutsushi/tagbar'
 
-" PHP Complete
+" PHP Support
 NeoBundle 'shawncplus/phpcomplete.vim'
+NeoBundle 'vim-scripts/composer.vim'
+
+" Scala and play support
+NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'gre/play2vim'
 
 " fuzzy finder
 NeoBundle "wincent/command-t"
 
 " Syntax Checking
 NeoBundle 'scrooloose/syntastic'
+
+" Snippet Manager
+NeoBundle "msanders/snipmate.vim"
 
 " Themes
 NeoBundle "jpo/vim-railscasts-theme"
