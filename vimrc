@@ -78,6 +78,7 @@ nmap <F10> :set nospell<CR>
 
 " CMD-1 opens up the file list
 map <leader>1 :NERDTreeToggle<CR>
+map <D-1> :NERDTreeToggle<CR>
 
 " Find the current file in NERDTree file structure
 nmap <leader>2 :NERDTreeFind<CR>
@@ -86,7 +87,7 @@ nmap <leader>2 :NERDTreeFind<CR>
 nmap <leader>7 :TagbarToggle<CR>
 
 " Command T
-nmap <C-p> :Find . -iname  
+nmap <C-n> :CommandT<CR>
 
 " ==================================================
 " Functions
@@ -106,6 +107,9 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle "tpope/vim-commentary"
 NeoBundle "tpope/vim-unimpaired"
+
+" Project based organization
+NeoBundle "amiorin/vim-project"
 
 " Delete all buffers except the current working buffer
 NeoBundle "vim-scripts/BufOnly.vim"
@@ -139,6 +143,17 @@ NeoBundle "nanotech/jellybeans.vim"
 
 call neobundle#end()
 filetype plugin indent on
+
+let g:project_use_nerdtree = 1
+set rtp+=~/.vim/bundle/vim-project/
+
+call project#rc("~/Development/playframework/")
+
+File '~/.vimrc', 'vimrc'
+Project  'gilesc-scala'
+Project  'playcasts'
+Project  'redhotmayo'
+
 
 " Enables syntax highlighting
 syntax enable
