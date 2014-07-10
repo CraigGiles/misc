@@ -6,7 +6,7 @@ set t_Co=256
 set mouse=a
 set linespace=5
 set wildmenu                    " Tab complete for menu items
-set guifont=Monaco:h14          " Sets the font                   
+set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14          " Sets the font                   
 set so=5                        " keep 15 lines above and below cursor when scrolling
 set splitright                  " Puts new vsplit windows to the right of the current
 set splitbelow                  " Puts new split windows to the bottom of the current
@@ -48,6 +48,12 @@ set wildignore+=*/sql/**
 set wildignore+=*/tools/**
 set wildignore+=*.swp   
 set wildignore+=*.bak  
+
+" Powerline (Fancy thingy at bottom stuff)
+" let g:Powerline_symbols = 'fancy'
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
 " ==================================================
 " Key Bindings
@@ -137,6 +143,9 @@ NeoBundle 'scrooloose/syntastic'
 " Snippet Manager
 NeoBundle "msanders/snipmate.vim"
 
+" Powerline
+NeoBundle "Lokaltog/vim-powerline"
+
 " Themes
 NeoBundle "jpo/vim-railscasts-theme"
 NeoBundle "nanotech/jellybeans.vim"
@@ -158,4 +167,4 @@ Project  'redhotmayo'
 " Enables syntax highlighting
 syntax enable
 set background=dark
-colorscheme jellybeans
+colorscheme railscasts
