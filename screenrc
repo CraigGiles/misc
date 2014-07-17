@@ -1,4 +1,16 @@
 shell -$SHELL
+hardstatus on
 hardstatus alwayslastline
-hardstatus string '%{= kG}[%{G}%H%{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%d/%m %{G}%C%A]'
 termcapinfo xterm-256color|xterm|xterms|xs|rxvt ti@:te@
+hardstatus string '%{= kG}[%{G}%H%{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%d/%m %{G}%C%A]'
+
+# enabled if there is no hardstatus setting for your terminal)
+# hardstatus string "%{.kW}%-w%{.W}%n %t%{-}%{=b kw}%?%+w%? %=%c %d/%m/%Y" #B&W & date&time
+# hardstatus string "%{.kW}%-w%{.W}%n %t%{-}%{=b kw}%?%+w%? %=%c %d/%m/%Y" #B&W & date&time
+# hardstatus string '%{= R}[%{w}%H%{R}][%{w}%=%?%-Lw%?%{R}%n*%f%t%?(%u)%? %{w}%?%+Lw%?%?%=%{R}][%{w}%m/%d %{W}%C%A%{R}]'
+# #hardstatus string "%{.kW}%-w%{.W}%n %t%{-}%+w %=%C %a "
+# #hardstatus string "%{=b kw} %?%-Lw%?%{=br kw}[%n %t]%{=b kw}%?%+Lw%? %="
+ #hardstatus alwayslastline '%{bk}[ %{W}%H %{b}][ %{w}%l%{b} ]   %{b}[%{w} %D %d.%m %c:%s%{b} ]'
+ #hardstatus alwayslastline '%{bk}[%{W}%H%{b}] %{w} %l %= %n*%t%{-b r}%{w}%+w %= %{w}%d %D %{w}%c'
+ #hardstatus alwayslastline '%{wk}[ %{g}][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}]%{=b C}[ %m/%d %c ]%{W}'
+# sorendition kw
