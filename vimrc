@@ -163,7 +163,6 @@ Project  'gilesc-scala'
 Project  'playcasts'
 Project  'redhotmayo'
 
-
 " Enables syntax highlighting
 syntax enable
 set background=dark
