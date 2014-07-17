@@ -66,34 +66,40 @@ nnoremap k gk
 imap jj <ESC>
 
 "easier window navigation
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Open splits
 nmap vs :vsplit<CR>
 nmap sp :split<CR>
 
 " resize vertical splits
-nmap <F1> :vertical resize +5<CR>
-nmap <F2> :vertical resize -5<CR>
+nmap <C-v> :vertical resize +5<CR>
 
-nmap <F9> :set spell<CR>
-nmap <F10> :set nospell<CR>
-
-" CMD-1 opens up the file list
 map <leader>1 :NERDTreeToggle<CR>
-map <D-1> :NERDTreeToggle<CR>
-
-" Find the current file in NERDTree file structure
 nmap <leader>2 :NERDTreeFind<CR>
-
-" CMD-7 opens up the tagbar
 nmap <leader>7 :TagbarToggle<CR>
+nnoremap <C-r> :TagbarToggle<CR>
 
 " Command T
-nmap <C-n> :CommandT<CR>
+nmap <C-p> :CommandT<CR>
+
+" Find the current word throughout the entire application using ACK
+nmap <C-f> ""yiw:!ack <C-r>"<CR>
+
+" Jump to definition
+nmap <C-b> <C-]>
+
+" set or remove spell check
+nnoremap \\ :set spell!<CR>
+
+" hide searh results
+nnoremap \] /akosdjfhaosdhjkif<CR>
+
+" Set UNDO to be what i'm used to (CTRL-Z)
+nnoremap <C-z> :undo<CR>
 
 " ==================================================
 " Functions
