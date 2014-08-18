@@ -47,6 +47,7 @@ set wildignore+=*/cli/**
 set wildignore+=*/logs/**
 set wildignore+=*/sql/**
 set wildignore+=*/tools/**
+set wildignore+=*/docroot/res/out/**
 set wildignore+=*.swp   
 set wildignore+=*.bak  
 
