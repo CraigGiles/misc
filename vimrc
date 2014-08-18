@@ -32,6 +32,7 @@ set undolevels=1000             " use many muchos levels of undo
 set visualbell                  " don't beep
 set noerrorbells                " don't beep
 set gdefault                    " /%s/foo/bar by default replaces all foo with bar
+set colorcolumn=120             " Vertical line at 120 column
 
 set expandtab
 set tabstop=4
