@@ -78,7 +78,7 @@ nmap vs :vsplit<CR>
 nmap sp :split<CR>
 
 " resize vertical splits
-nmap <C-v> :vertical resize +5<CR>
+nmap <C-g> :vertical resize +5<CR>
 
 nmap <F9> :set spell<CR>
 nmap <F10> :set nospell<CR>
@@ -95,7 +95,7 @@ nmap <C-p> :CommandT<CR>
 nmap <C-f> ""yiw:!ack <C-r>"<CR>
 
 " Jump to definition
-nmap <C-b> <C-]>
+nmap <C-b> <C-]>zz
 
 " set or remove spell check
 nnoremap \\ :set spell!<CR>
@@ -103,8 +103,13 @@ nnoremap \\ :set spell!<CR>
 " hide searh results
 nnoremap \] /akosdjfhaosdhjkif<CR>
 
-" Set UNDO to be what i'm used to (CTRL-Z)
+" Set UNDO/REDO to be what i'm used to (CTRL-z, CTRL-Z)
 nnoremap <C-z> :undo<CR>
+nnoremap <C-Z> :redo<CR>
+
+" Leader-T will run the current unit test
+map <leader>t :!clear && phpunit %<CR>
+
 " ==================================================
 " Functions
 " ==================================================
