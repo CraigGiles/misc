@@ -80,6 +80,10 @@ nmap sp :split<CR>
 " resize vertical splits
 nmap <C-g> :vertical resize +5<CR>
 
+" Run git blame on the current file
+nmap gb :Gblame<CR>
+nmap <C-g>a :Gblame<CR>
+
 nmap <F9> :set spell<CR>
 nmap <F10> :set nospell<CR>
 
