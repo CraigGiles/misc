@@ -78,7 +78,7 @@ nmap vs :vsplit<CR>
 nmap sp :split<CR>
 
 " resize vertical splits
-nmap <C-g> :vertical resize +5<CR>
+nmap + :vertical resize +5<CR>
 
 " Run git blame on the current file
 nmap gb :Gblame<CR>
@@ -113,6 +113,9 @@ nnoremap <C-Z> :redo<CR>
 
 " Leader-T will run the current unit test
 map <leader>t :!clear && phpunit %<CR>
+
+" Trigger snipMate
+let g:snippets_dir = "~/.vim/snippets"
 
 " ==================================================
 " Functions
