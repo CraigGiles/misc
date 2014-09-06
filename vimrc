@@ -1,4 +1,56 @@
 " ==================================================
+" Key Bindings
+" ==================================================
+" Down is really the next line
+nnoremap j gj
+nnoremap k gk
+
+"Easy escaping to normal model
+imap jj <ESC>
+
+"easier window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Open splits
+nmap vs :vsplit<CR>
+nmap sp :split<CR>
+
+nmap + :vertical resize +5<CR>
+nmap gb :Gblame<CR>
+
+nmap <F9> :set spell<CR>
+nmap <F10> :set nospell<CR>
+
+map <leader>1 :NERDTreeToggle<CR>
+nmap <leader>2 :NERDTreeFind<CR>
+nmap <leader>7 :TagbarToggle<CR>
+
+" Command T
+nmap <C-p> :CommandT<CR>
+
+" Find the current word throughout the entire application using ACK
+nmap <C-f> ""yiw:!ack <C-r>"<CR>
+
+" Jump to definition
+nmap <C-b> <C-]>zz
+
+" set or remove spell check
+nnoremap \\ :set spell!<CR>
+
+" hide searh results
+nnoremap \] /akosdjfhaosdhjkif<CR>
+
+" Set UNDO/REDO to be what i'm used to (CTRL-z, CTRL-Z)
+nnoremap <C-z> :undo<CR>
+nnoremap <C-Z> :redo<CR>
+
+" Leader-T will run the current unit test
+map <leader>t :!clear && phpunit %<CR>
+
+" ==================================================
 " VIM Settings
 " ==================================================
 set nocompatible                " Disable vi-compatibility
@@ -57,57 +109,6 @@ set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
-" ==================================================
-" Key Bindings
-" ==================================================
-" Down is really the next line
-nnoremap j gj
-nnoremap k gk
-
-"Easy escaping to normal model
-imap jj <ESC>
-
-"easier window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" Open splits
-nmap vs :vsplit<CR>
-nmap sp :split<CR>
-
-nmap + :vertical resize +5<CR>
-nmap gb :Gblame<CR>
-
-nmap <F9> :set spell<CR>
-nmap <F10> :set nospell<CR>
-
-map <leader>1 :NERDTreeToggle<CR>
-nmap <leader>2 :NERDTreeFind<CR>
-nmap <leader>7 :TagbarToggle<CR>
-
-" Command T
-nmap <C-p> :CommandT<CR>
-
-" Find the current word throughout the entire application using ACK
-nmap <C-f> ""yiw:!ack <C-r>"<CR>
-
-" Jump to definition
-nmap <C-b> <C-]>zz
-
-" set or remove spell check
-nnoremap \\ :set spell!<CR>
-
-" hide searh results
-nnoremap \] /akosdjfhaosdhjkif<CR>
-
-" Set UNDO/REDO to be what i'm used to (CTRL-z, CTRL-Z)
-nnoremap <C-z> :undo<CR>
-nnoremap <C-Z> :redo<CR>
-
-" Leader-T will run the current unit test
-map <leader>t :!clear && phpunit %<CR>
 
 " ==================================================
 " Functions
