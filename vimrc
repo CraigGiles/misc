@@ -172,10 +172,10 @@ filetype plugin indent on
 let g:project_use_nerdtree = 1
 set rtp+=~/.vim/bundle/vim-project/
 
-call project#rc("/var/www/git-repos/")
+call project#rc("~/Development/redhotmayo/")
 
 File '~/.vimrc', 'vimrc'
-Project  'pm'
+Project  'lamp-stack'
 
 " Enables syntax highlighting
 syntax enable
