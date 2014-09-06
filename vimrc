@@ -77,10 +77,8 @@ nnoremap <C-l> <C-w>l
 nmap vs :vsplit<CR>
 nmap sp :split<CR>
 
-nmap <C-g> :vertical resize +5<CR>
-
-nmap <C-g>a :Gblame<CR>
-nmap <C-g><C-a> :Gblame<CR>
+nmap + :vertical resize +5<CR>
+nmap gb :Gblame<CR>
 
 nmap <F9> :set spell<CR>
 nmap <F10> :set nospell<CR>
