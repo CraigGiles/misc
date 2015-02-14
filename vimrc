@@ -10,7 +10,7 @@ nnoremap j gj
 nnoremap k gk
 
 " Escape to normal mode from insert mode with jj
-imap jj<ESC>
+imap jj <ESC>
 
 " Increase vertical split size by 5
 nmap + :vertical resize +5<CR>
@@ -41,14 +41,31 @@ nnoremap \] /akosdjfhaosdhjkif<CR>
 execute pathogen#infect()
 
 let g:project_use_nerdtree = 1
-set background=dark
 colorscheme railscasts
 
-" ==================================================
+" Powerline (Fancy thingy at bottom stuff)
+" let g:Powerline_symbols = 'fancy'
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+
+" Control P
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|target|project)$',
+  \ 'file': '\v\.(exe|so|dll|class|jar)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
+"  ==================================================
 " Settings
 " ==================================================
 set splitright                  " Puts new vsplit windows to the right of the current
 set splitbelow                  " Puts new split windows to the bottom of the current
+set nu				" Always show line numbers
 set tags=.git/tags
 
 set nobackup                    " don't use backup files
@@ -57,6 +74,7 @@ set noswapfile                  " don't use swap files
 
 " I don't want to pull up these folders/files when calling COMMAND-T
 set wildignore+=*/vendor/**
+set wildignore+=*/target/**
 set wildignore+=*/cli/**
 set wildignore+=*/logs/**
 set wildignore+=*/sql/**
@@ -65,8 +83,3 @@ set wildignore+=*/docroot/res/out/**
 set wildignore+=*.swp   
 set wildignore+=*.bak  
 
-" Powerline (Fancy thingy at bottom stuff)
-" let g:Powerline_symbols = 'fancy'
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
-set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
