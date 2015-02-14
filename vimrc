@@ -20,6 +20,7 @@ nmap ga :Gblame<CR>
 nmap gs :Gstatus<CR>
 nmap gm :Gcommit<CR>
 
+nmap <leader>a ggVG
 
 " File navigation and IDE like settings
 map <leader>1 :NERDTreeToggle<CR>
@@ -66,7 +67,7 @@ let g:ctrlp_custom_ignore = {
 set splitright                  " Puts new vsplit windows to the right of the current
 set splitbelow                  " Puts new split windows to the bottom of the current
 set nu				" Always show line numbers
-set tags=.git/tags
+set tags=tags
 
 set nobackup                    " don't use backup files
 set nowb                        " don't use backup files
