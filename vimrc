@@ -1,29 +1,30 @@
 " ==================================================
 " Key Bindings
 " ==================================================
+" Easy opening of splits
+nmap vs :vs<CR>
+nmap sp :sp<CR>
+
 " Down is really the next line
 nnoremap j gj
 nnoremap k gk
 
-"Easy escaping to normal model
-imap jj <ESC>
+" Escape to normal mode from insert mode with jj
+imap jj<ESC>
 
-" Open splits
-nmap vs :vsplit<CR>
-nmap sp :split<CR>
-
+" Increase vertical split size by 5
 nmap + :vertical resize +5<CR>
-nmap ga :Gblame<CR>
 
+" git related commands
+nmap ga :Gblame<CR>
+nmap gs :Gstatus<CR>
+nmap gm :Gcommit<CR>
+
+
+" File navigation and IDE like settings
 map <leader>1 :NERDTreeToggle<CR>
 nmap <leader>2 :NERDTreeFind<CR>
 nmap <leader>7 :TagbarToggle<CR>
-
-" Command T
-nmap <C-p> :CommandT<CR>
-
-" Find the current word throughout the entire application using ACK
-nmap <C-f> ""yiw:!ack <C-r>"<CR>
 
 " Jump to definition, <C-t> jumps back
 nmap <C-b> <C-]>zz
@@ -34,55 +35,25 @@ nnoremap \\ :set spell!<CR>
 " hide searh results
 nnoremap \] /akosdjfhaosdhjkif<CR>
 
-" Set UNDO/REDO to be what i'm used to (CTRL-z, CTRL-Z)
-nnoremap <C-z> :undo<CR>
-nnoremap <C-Z> :redo<CR>
+" ==================================================
+" Plugins
+" ==================================================
+execute pathogen#infect()
 
-" Leader-T will run the current PHP unit test
-map <leader>t :!clear && phpunit %<CR>
+let g:project_use_nerdtree = 1
+set background=dark
+colorscheme railscasts
 
 " ==================================================
-" VIM Settings
+" Settings
 " ==================================================
-set nocompatible                " Disable vi-compatibility
-set t_Co=256
-set mouse=a
-set linespace=5
-set wildmenu                    " Tab complete for menu items
-set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14          " Sets the font                   
-set so=5                        " keep 15 lines above and below cursor when scrolling
 set splitright                  " Puts new vsplit windows to the right of the current
 set splitbelow                  " Puts new split windows to the bottom of the current
-set number			            " Show line numbers
+set tags=.git/tags
+
 set nobackup                    " don't use backup files
 set nowb                        " don't use backup files
 set noswapfile                  " don't use swap files
-set clipboard=unnamed           " Copy to clipboard when using (y,d,x,etc.)
-set history=700                 " Sets how many lines of history VIM has to remember
-set showcmd                     " show command in bottom bar
-set cursorline                  " highlight current line
-set showmatch                   " highlight matching [{()}]
-set incsearch                   " search as characters are entered
-set hlsearch                    " highlight matches
-set autoread                    " Autoread when a file is changed from the outside
-set ruler                       " Always show current position
-set encoding=utf8               " Show matching brackets when text indicator is over them
-set autoindent                  " always set autoindenting on
-set copyindent                  " copy the previous indentation on autoindenting
-set ignorecase                  " ignore case when searching
-set smartcase                   " ignore case if search pattern is all lowercase,
-set undolevels=1000             " use many muchos levels of undo
-set visualbell                  " don't beep
-set noerrorbells                " don't beep
-set gdefault                    " /%s/foo/bar by default replaces all foo with bar
-set colorcolumn=120             " Vertical line at 120 column
-
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-
-set tags=tags
 
 " I don't want to pull up these folders/files when calling COMMAND-T
 set wildignore+=*/vendor/**
@@ -99,75 +70,3 @@ set wildignore+=*.bak
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
-
-
-" ==================================================
-" Functions
-" ==================================================
-
-" ==================================================
-" Plugins
-" ==================================================
-set runtimepath+=~/.vim/bundle/neobundle.vim
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" let neobundle manage 
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" Tim Pope's plugins
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-eunuch'
-NeoBundle "tpope/vim-commentary"
-NeoBundle "tpope/vim-unimpaired"
-
-" Project based organization
-NeoBundle "amiorin/vim-project"
-
-" Delete all buffers except the current working buffer
-NeoBundle "vim-scripts/BufOnly.vim"
-
-" NerdTree file explorer
-NeoBundle 'scrooloose/nerdtree'
-
-" Tagbar for sidebar function organization
-NeoBundle 'majutsushi/tagbar'
-
-" PHP Support
-NeoBundle 'shawncplus/phpcomplete.vim'
-NeoBundle 'vim-scripts/composer.vim'
-
-" Scala and play support
-NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'gre/play2vim'
-
-" fuzzy finder
-NeoBundle "wincent/command-t"
-
-" Syntax Checking
-NeoBundle 'scrooloose/syntastic'
-
-" Snippet Manager
-NeoBundle "msanders/snipmate.vim"
-
-" Powerline
-NeoBundle "Lokaltog/vim-powerline"
-
-" Themes
-NeoBundle "jpo/vim-railscasts-theme"
-NeoBundle "nanotech/jellybeans.vim"
-
-call neobundle#end()
-filetype plugin indent on
-
-let g:project_use_nerdtree = 1
-set rtp+=~/.vim/bundle/vim-project/
-
-call project#rc("~/Development/redhotmayo/")
-
-File '~/.vimrc', 'vimrc'
-Project  'lamp-stack'
-
-" Enables syntax highlighting
-syntax enable
-set background=dark
-colorscheme railscasts
