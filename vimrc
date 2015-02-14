@@ -8,21 +8,12 @@ nnoremap k gk
 "Easy escaping to normal model
 imap jj <ESC>
 
-"easier window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 " Open splits
 nmap vs :vsplit<CR>
 nmap sp :split<CR>
 
 nmap + :vertical resize +5<CR>
-nmap gb :Gblame<CR>
-
-nmap <F9> :set spell<CR>
-nmap <F10> :set nospell<CR>
+nmap ga :Gblame<CR>
 
 map <leader>1 :NERDTreeToggle<CR>
 nmap <leader>2 :NERDTreeFind<CR>
@@ -34,7 +25,7 @@ nmap <C-p> :CommandT<CR>
 " Find the current word throughout the entire application using ACK
 nmap <C-f> ""yiw:!ack <C-r>"<CR>
 
-" Jump to definition
+" Jump to definition, <C-t> jumps back
 nmap <C-b> <C-]>zz
 
 " set or remove spell check
@@ -47,7 +38,7 @@ nnoremap \] /akosdjfhaosdhjkif<CR>
 nnoremap <C-z> :undo<CR>
 nnoremap <C-Z> :redo<CR>
 
-" Leader-T will run the current unit test
+" Leader-T will run the current PHP unit test
 map <leader>t :!clear && phpunit %<CR>
 
 " ==================================================
