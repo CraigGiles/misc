@@ -1,6 +1,11 @@
 " ==================================================
 " Key Bindings
 " ==================================================
+
+" Easy open and source of vimrc
+nmap <leader>ed :vs ~/.vimrc<CR>
+nmap <leader>sv :source ~/.vimrc<CR>
+
 " Easy opening of splits
 nmap vs :vs<CR>
 nmap sp :sp<CR>
