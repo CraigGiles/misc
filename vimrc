@@ -45,6 +45,7 @@ nnoremap \] /akosdjfhaosdhjkif<CR>
 " Plugins
 " ==================================================
 execute pathogen#infect()
+call pathogen#helptags()
 
 let g:project_use_nerdtree = 1
 let NERDTreeQuitOnOpen = 1
@@ -70,9 +71,7 @@ let g:ctrlp_custom_ignore = {
 " Settings
 " ==================================================
 
-let g:solarized_termcolors=256
-set background=dark
-colorscheme solarized
+colorscheme railscasts
 
 set splitright                  " Puts new vsplit windows to the right of the current
 set splitbelow                  " Puts new split windows to the bottom of the current
