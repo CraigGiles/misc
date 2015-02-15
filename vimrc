@@ -42,7 +42,7 @@ nnoremap \] /akosdjfhaosdhjkif<CR>
 execute pathogen#infect()
 
 let g:project_use_nerdtree = 1
-colorscheme railscasts
+let NERDTreeQuitOnOpen = 1
 
 " Powerline (Fancy thingy at bottom stuff)
 " let g:Powerline_symbols = 'fancy'
@@ -64,6 +64,11 @@ let g:ctrlp_custom_ignore = {
 "  ==================================================
 " Settings
 " ==================================================
+
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
+
 set splitright                  " Puts new vsplit windows to the right of the current
 set splitbelow                  " Puts new split windows to the bottom of the current
 set nu				" Always show line numbers
