@@ -49,6 +49,13 @@ call pathogen#helptags()
 
 let g:project_use_nerdtree = 1
 let NERDTreeQuitOnOpen = 1
+let g:neocomplete#enable_at_startup = 1
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 " Powerline (Fancy thingy at bottom stuff)
 " let g:Powerline_symbols = 'fancy'
@@ -71,9 +78,11 @@ let g:ctrlp_custom_ignore = {
 " Settings
 " ==================================================
 
-colorscheme railscasts
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
 
-set splitright                  " Puts new vsplit windows to the right of the current
+set splitright			" Puts new v-split to the right of the current
 set splitbelow                  " Puts new split windows to the bottom of the current
 set nu				" Always show line numbers
 set tags=tags
