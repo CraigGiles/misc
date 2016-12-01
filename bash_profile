@@ -5,9 +5,12 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 export BROWSER=safari
 
+alias tmux="TERM=screen-256color-bce tmux"
+set -g default-terminal "xterm-256color"
 alias g='mvim --remote-silent'
 alias ll='ls -la'
+alias ls='ls -1'
 alias gs='git status'
 
+export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=/usr/local/bin:$PATH
-$PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
