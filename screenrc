@@ -1,7 +1,0 @@
-shell -$SHELL
-hardstatus on
-hardstatus alwayslastline
-termcapinfo xterm-256color|xterm|xterms|xs|rxvt ti@:te@
-hardstatus string '%{= kG}[%{G}%H%{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%d/%m %{G}%C%A]'
-defscrollback 5000
-startup_message off

@@ -1,7 +1,7 @@
 /**
  * A Scala library to fetch dependencies from Maven / Ivy repositories
  */
-addSbtPlugin("io.get-coursier" % "sbt-coursier" % "1.0.0-M14")
+// addSbtPlugin("io.get-coursier" % "sbt-coursier" % "1.0.0-M14")
 
 /**
  * Display your SBT project's dependency updates.
@@ -36,7 +36,7 @@ addSbtPlugin("io.spray" % "sbt-revolver" % "0.8.0")
  * ScalaClippy is an advice database that provides helpful hints for
  * compiler errors with additional messages to aid in your debugging.
  */
-addSbtPlugin("com.softwaremill.clippy" % "plugin-sbt" % "0.3.0")
+addSbtPlugin("com.softwaremill.clippy" % "plugin-sbt" % "0.3.2")
 
 /**
  * sbt-dirty-money is an sbt plugin for cleaning Ivy2 cache. If you use
@@ -62,4 +62,4 @@ addSbtPlugin("com.eed3si9n" % "sbt-dirty-money" % "0.1.0")
 if (sys.props("java.version").startsWith("1.6"))
   addSbtPlugin("org.ensime" % "sbt-ensime" % "1.0.0")
 else
-  addSbtPlugin("org.ensime" % "sbt-ensime" % "1.9.1")
+  addSbtPlugin("org.ensime" % "sbt-ensime" % "1.12.1")
