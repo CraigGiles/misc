@@ -12,7 +12,6 @@ function new-tmux-from-dir-name {
 }
 
 # Tmux
-set -g default-terminal "xterm-256color"
 alias tmux="TERM=screen-256color-bce tmux"
 alias tnew="new-tmux-from-dir-name"
 
