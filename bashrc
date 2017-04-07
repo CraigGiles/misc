@@ -2,6 +2,8 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 export BROWSER=safari
