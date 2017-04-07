@@ -24,5 +24,10 @@ alias gs='git status'
 
 export SBT_OPTS="-Xmx2G -Xss2M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
 
+# FZF settings to pipe through ag
+# NOTE: To use you must use 'brew install the_silver_searcher'
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 export PATH=/usr/local/bin:$PATH
 $PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
