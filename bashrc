@@ -30,4 +30,5 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export PATH=/usr/local/bin:$PATH
+export JAVA_HOME=$(/usr/libexec/java_home)
 $PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
