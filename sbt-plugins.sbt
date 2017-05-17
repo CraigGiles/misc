@@ -62,4 +62,4 @@ addSbtPlugin("com.eed3si9n" % "sbt-dirty-money" % "0.1.0")
 if (sys.props("java.version").startsWith("1.6"))
   addSbtPlugin("org.ensime" % "sbt-ensime" % "1.0.0")
 else
-  addSbtPlugin("org.ensime" % "sbt-ensime" % "1.12.5")
+  addSbtPlugin("org.ensime" % "sbt-ensime" % "1.12.12")
