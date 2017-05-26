@@ -6,7 +6,7 @@
 /**
  * Display your SBT project's dependency updates.
  */
-addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.2.0")
+addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.3.0")
 
 /**
  * Visualize your project's dependency graph
