@@ -19,7 +19,7 @@ alias tnew="new-tmux-from-dir-name"
 
 alias g='mvim --remote-silent'
 alias gvim='gnvim'
-alias ll='ls -lhg'
+alias ll='ls -lahg'
 alias gs='git status'
 
 export SBT_OPTS="-Xmx2G -Xss2M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
