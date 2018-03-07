@@ -34,3 +34,4 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export JAVA_HOME=$(/usr/libexec/java_home)
 $PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+export PATH="/usr/local/sbin:$PATH"
