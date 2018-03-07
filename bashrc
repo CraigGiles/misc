@@ -18,7 +18,7 @@ alias tmux="TERM=screen-256color-bce tmux"
 alias tnew="new-tmux-from-dir-name"
 
 alias g='mvim --remote-silent'
-alias gvim='gnvim'
+# alias vim='nvim'
 alias ll='ls -lahg'
 alias gs='git status'
 
@@ -29,6 +29,8 @@ export SBT_OPTS="-Xmx2G -Xss2M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEna
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-export PATH=/usr/local/bin:$PATH
+export PATH="/usr/local:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export JAVA_HOME=$(/usr/libexec/java_home)
 $PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
