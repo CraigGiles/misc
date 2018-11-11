@@ -21,6 +21,9 @@ alias g='mvim --remote-silent'
 # alias vim='nvim'
 alias ll='ls -lahg'
 alias gs='git status'
+alias wla='/Users/gilesc/Development/retro-game-dev/wla.sh'
+
+alias fsearch='Ag . | FZF --exact'
 
 export SBT_OPTS="-Xmx2G -Xss2M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
 
