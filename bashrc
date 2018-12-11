@@ -1,5 +1,5 @@
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
+if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
+  . `brew --prefix`/etc/bash_completion.d/git-completion.bash
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -22,6 +22,9 @@ alias g='mvim --remote-silent'
 # alias vim='nvim'
 alias ll='ls -lahg'
 alias gs='git status'
+alias wla='/Users/gilesc/Development/retro-game-dev/wla.sh'
+
+alias fsearch='Ag . | FZF --exact'
 
 export SBT_OPTS="-Xmx8G -Xss8M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
 
