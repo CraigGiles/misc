@@ -6,6 +6,7 @@ fi
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
+export TERM=xterm-256color
 export BROWSER=safari
 
 function new-tmux-from-dir-name {
@@ -22,7 +23,7 @@ alias g='mvim --remote-silent'
 alias ll='ls -lahg'
 alias gs='git status'
 
-export SBT_OPTS="-Xmx2G -Xss2M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
+export SBT_OPTS="-Xmx8G -Xss8M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
 
 # FZF settings to pipe through ag
 # NOTE: To use you must use 'brew install the_silver_searcher'
