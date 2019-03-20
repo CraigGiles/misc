@@ -22,7 +22,7 @@ alias g='mvim --remote-silent'
 # alias vim='nvim'
 alias ll='ls -lahg'
 alias gs='git status'
-alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs' &
+alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs &'
 
 alias fsearch='Ag . | FZF --exact'
 
