@@ -18,7 +18,6 @@ function new-tmux-from-dir-name {
 alias tmux="TERM=screen-256color-bce tmux"
 alias tnew="new-tmux-from-dir-name"
 
-alias g='mvim --remote-silent'
 # alias vim='nvim'
 alias ll='ls -lahg'
 alias gs='git status'
@@ -27,6 +26,8 @@ alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs "$@"'
 alias fsearch='Ag . | FZF --exact'
 
 export SBT_OPTS="-Xmx8G -Xss8M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
+export GOPATH="/Users/gilesc/Development/golang"
+export PATH=$PATH:$GOPATH/bin
 
 # FZF settings to pipe through ag
 # NOTE: To use you must use 'brew install the_silver_searcher'
