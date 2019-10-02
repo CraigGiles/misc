@@ -11,5 +11,7 @@ echo "Installing homebrew"
 echo "Installing tools via homebrew"
 brew install reattach-to-user-namespace
 brew install ripgrep
+brew install git
+
 brew install fzf
 /usr/local/opt/fzf/install
