@@ -12,6 +12,7 @@ echo "Installing tools via homebrew"
 brew install reattach-to-user-namespace
 brew install ripgrep
 brew install git
+brew install the_silver_searcher
 
 brew install fzf
 /usr/local/opt/fzf/install
