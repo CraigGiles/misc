@@ -21,7 +21,7 @@ alias tnew="new-tmux-from-dir-name"
 # alias vim='nvim'
 alias ll='ls -lahg'
 alias gs='git status'
-alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs "$@" &'
+alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs "$@" &>/dev/null &'
 alias wow="/Users/gilesc/Downloads/WoW-1.12.1-enUS-Mac/WoW.app/Contents/MacOS/World\ of\ Warcraft"
 
 alias fsearch='Ag . | FZF --exact'
