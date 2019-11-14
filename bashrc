@@ -26,7 +26,7 @@ alias wow="/Users/gilesc/Downloads/WoW-1.12.1-enUS-Mac/WoW.app/Contents/MacOS/Wo
 
 alias fsearch='Ag . | FZF --exact'
 
-export SBT_OPTS="-Xmx8G -Xss8M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
+# export SBT_OPTS="-Xmx8G -Xss8M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
 export GOPATH="/Users/gilesc/Development/golang"
 export PATH=$PATH:$GOPATH/bin
 
