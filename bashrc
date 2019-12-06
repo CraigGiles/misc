@@ -26,23 +26,18 @@ alias wow="/Users/gilesc/Downloads/WoW-1.12.1-enUS-Mac/WoW.app/Contents/MacOS/Wo
 
 alias fsearch='Ag . | FZF --exact'
 
-# export SBT_OPTS="-Xmx8G -Xss8M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
-export GOPATH="/Users/gilesc/Development/golang"
-export PATH=$PATH:$GOPATH/bin
-
-# FZF settings to pipe through ag
+# FZ settings to pipe through ag
 # NOTE: To use you must use 'brew install the_silver_searcher'
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export PATH="/usr/local:$PATH"
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-export JAVA_HOME=$(/usr/libexec/java_home)
-$PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+export PATH="/Users/gilesc/go/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 MVIM=/Applications/MacVim.app/Contents/bin
 if test -f "$MVIM/mvim"; then
     export PATH="$MVIM:$PATH"
 fi
+
+export JAVA_HOME=$(/usr/libexec/java_home)
