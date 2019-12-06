@@ -41,3 +41,8 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export JAVA_HOME=$(/usr/libexec/java_home)
 $PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
 export PATH="/usr/local/sbin:$PATH"
+
+MVIM=/Applications/MacVim.app/Contents/bin
+if test -f "$MVIM/mvim"; then
+    export PATH="$MVIM:$PATH"
+fi
