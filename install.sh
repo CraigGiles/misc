@@ -3,6 +3,8 @@
 echo "simlink configuration files"
 ln -s ~/Development/gilesc-misc/bashrc ~/.bash_profile
 ln -s ~/Development/gilesc-misc/tmux.conf ~/.tmux.conf
+ln -s ~/Development/gilesc-misc/gitignore ~/.gitignore
+ln -s ~/.vim/vimrc ~/.vimrc
 ln -s ~/.vim/vimrc ~/.vimrc
 
 echo "Installing homebrew"

@@ -1,0 +1,18 @@
+# Mac
+.DS_Store
+
+# Editors
+.idea/
+.projections.json
+
+# vi
+*~
+
+# Custom Scripts
+ctime_info.ctm
+ctime/ctime
+
+# General
+log/
+*.log
+
