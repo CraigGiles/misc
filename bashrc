@@ -22,7 +22,6 @@ alias tnew="new-tmux-from-dir-name"
 alias ll='ls -lahg'
 alias gs='git status'
 alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -L ~/.emacs.d/modules/releases/ "$@" &>/dev/null &'
-alias em'/Applications/Emacs.app/Contents/MacOS/Emacs -L ~/.emacs.d/modules/releases/' 
 
 alias fsearch='Ag . | FZF --exact'
 
