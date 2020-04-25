@@ -21,7 +21,10 @@ alias tnew="new-tmux-from-dir-name"
 # alias vim='nvim'
 alias ll='ls -lahg'
 alias gs='git status'
-alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -L ~/.emacs.d/modules/releases/ "$@" &>/dev/null &'
+alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -L ~/.emacs.d/modules/releases/ "$@" &>/dev/null & disown'
+
+alias emtest='/Applications/Emacs.app/Contents/MacOS/Emacs -q --load ~/.emacs.d/minimal.el -Q ~/.emacs.d/minimal.el'
+alias nes='java -jar /Users/gilesc/Development/nes/nintaco-2019-04-07/Nintaco.jar'
 
 alias fsearch='Ag . | FZF --exact'
 
