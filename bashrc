@@ -36,6 +36,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export PATH="/usr/local:$PATH"
 export PATH="/Users/gilesc/go/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+alias ctags="`brew --prefix`/bin/ctags"
 
 MVIM=/Applications/MacVim.app/Contents/bin
 if test -f "$MVIM/mvim"; then
