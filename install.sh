@@ -8,9 +8,10 @@ ln -s ~/.vim/vimrc ~/.vimrc
 ln -s ~/.vim/vimrc ~/.vimrc
 
 echo "Installing homebrew"
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" 
 
 echo "Installing tools via homebrew"
+brew install tmux
 brew install reattach-to-user-namespace
 brew install ripgrep
 brew install git
@@ -28,3 +29,6 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 git config --global alias.unpushed "log --branches --not --remotes --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 git config --global alias.branches-ordered "branch --sort=-committerdate --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
 git config --global alias.branches "branch -a"
+
+echo "Disable key PressAndHold"
+defaults write -g ApplePressAndHoldEnabled -bool false

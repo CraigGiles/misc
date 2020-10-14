@@ -22,10 +22,6 @@ alias tnew="new-tmux-from-dir-name"
 alias ll='ls -lahg'
 alias gs='git status'
 alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -L ~/.emacs.d/modules/releases/ "$@" &>/dev/null & disown'
-
-alias emtest='/Applications/Emacs.app/Contents/MacOS/Emacs -q --load ~/.emacs.d/minimal.el -Q ~/.emacs.d/minimal.el'
-alias nes='java -jar /Users/gilesc/Development/nes/nintaco-2019-04-07/Nintaco.jar'
-
 alias fsearch='Ag . | FZF --exact'
 
 # FZ settings to pipe through ag
@@ -34,13 +30,11 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export PATH="/usr/local:$PATH"
-export PATH="/Users/gilesc/go/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+
 alias ctags="`brew --prefix`/bin/ctags"
 
 MVIM=/Applications/MacVim.app/Contents/bin
 if test -f "$MVIM/mvim"; then
     export PATH="$MVIM:$PATH"
 fi
-
-export JAVA_HOME=$(/usr/libexec/java_home)
