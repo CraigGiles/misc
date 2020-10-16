@@ -32,3 +32,13 @@ git config --global alias.branches "branch -a"
 
 echo "Disable key PressAndHold"
 defaults write -g ApplePressAndHoldEnabled -bool false
+
+echo "Changing shell to use bash"
+chsh -s /bin/bash
+
+echo "Cloning emacs config into emacs.d"
+git clone git@github.com:CraigGiles/emacs.d.git ~/.emacs.d
+touch ~/.emacs.d/custom.el
+
+echo "Cloning vim config into ~/.vim"
+git clone git@github.com:CraigGiles/dotvim.git ~/.vim
