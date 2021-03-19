@@ -21,6 +21,8 @@ brew install fzf
 /usr/local/opt/fzf/install
 
 echo "Git configuration"
+git config --global user.name "Craig Giles"
+git config --global user.email craig@gilesc.com
 git config --global color.ui true
 git config --global core.excludesfile '~/.gitignore'
 git config --global alias.ls "log --pretty=format:'%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]' --decorate"
