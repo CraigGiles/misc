@@ -1,0 +1,4 @@
+rem This file exists only to load up the MSVC environment before building our solution"
+rem This is also hard coded to the 2019 version
+call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+
