@@ -20,15 +20,7 @@ alias tnew="new-tmux-from-dir-name"
 
 # alias vim='nvim'
 alias ll='ls -lahg'
-alias gs='git status'
-alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -L ~/.emacs.d/modules/releases/ "$@" &>/dev/null & disown'
-alias em='/Applications/Emacs.app/Contents/MacOS/Emacs -q --load /Users/gilesc/.emacs.d/test-init.el "$@" &>/dev/null & disown'
 alias fsearch='Ag . | FZF --exact'
-
-# FZ settings to pipe through ag
-# NOTE: To use you must use 'brew install the_silver_searcher'
-export FZF_DEFAULT_COMMAND='ag -g ""'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export PATH="/usr/local:$PATH"
 export PATH="/usr/local/sbin:$PATH"
@@ -36,11 +28,4 @@ export PATH="/usr/local/sbin:$PATH"
 export GOPATH="$(go env GOPATH)"
 export PATH="${PATH}:${GOPATH}/bin"
 
-export JAVA_HOME=$(/usr/libexec/java_home)
-
 alias ctags="`brew --prefix`/bin/ctags"
-
-MVIM=/Applications/MacVim.app/Contents/bin
-if test -f "$MVIM/mvim"; then
-    export PATH="$MVIM:$PATH"
-fi
